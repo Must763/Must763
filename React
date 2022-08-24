@@ -1,0 +1,747 @@
+local distance = 100 -- The higher it is, the more distance it covers.
+
+
+
+local tool  = game.StarterPack("Save")
+local toolP = game.StarterPack("Header")
+local toolL = game.StarterPack("Kick")
+local toolT = game.StarterPack("Tackle")
+
+local equipped = false
+local equippedP = false
+local equippedL = false
+local equippedT = false
+
+
+local arguments = {
+    [1] = workspace.TPSSystem.TPS
+}
+
+
+tool.Equipped:Connect(function()
+    equipped = true
+end)
+
+tool.Unequipped:Connect(function()
+    equipped = false
+end)
+
+
+toolP.Equipped:Connect(function()
+    equippedP = true
+end)
+
+toolP.Unequipped:Connect(function()
+    equippedP = false
+end)
+
+toolL.Equipped:Connect(function()
+    equippedL = true
+end)
+
+toolL.Unequipped:Connect(function()
+    equippedL = false
+end)
+
+toolT.Equipped:Connect(function()
+    equippedT = true
+end)
+
+toolT.Unequipped:Connect(function()
+    equippedT = false
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+            mouse.Button1Down:Connect(function()
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+                local args = {
+                    [1] = workspace.TPSSystem.TPS,
+                    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+                }
+                workspace.FE.Dribble.Dribble:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+                local args = {
+                    [1] = workspace.TPSSystem.TPS,
+                    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+                }
+                workspace.FE.Dribble.Dribble:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "e" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FastDribble:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Dribble.FastDribble:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "f" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS
+}
+workspace.FE.Dribble.Stop:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS
+}
+
+workspace.FE.Dribble.Stop:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "q" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.Precision:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Dribble.Precision:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "x" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character.Torso.Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace.FE.Dribble.ChestControl:FireServer(unpack(args))
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character.Head.Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+workspace.FE.Dribble.ChestControl:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "y" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.TrickUp:FireServer(unpack(args))
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Dribble.TrickUp:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "c" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FakeTouch:FireServer(unpack(args))
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Dribble.FakeTouch:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "g" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FakeLR:FireServer(unpack(args))
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FakeLR:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "h" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FakeLR:FireServer(unpack(args))
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.FakeLR:FireServer(unpack(args))
+
+workspace.FE.Dribble.FakeLR:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "n" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.Rainbow:FireServer(unpack(args))
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.Rainbow:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "b" then 
+if equipped == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.LRFake:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Dribble.LRFake:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "c" then 
+if equippedL == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Long.LongLR:FireServer(unpack(args))
+
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Long.LongLR:FireServer(unpack(args))
+
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "z" then 
+if equippedL == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Long.LongLR:FireServer(unpack(args))
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Long.LongLR:FireServer(unpack(args))
+
+
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+            mouse.Button1Down:Connect(function()
+if equippedT == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.Tackle:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.Tackle:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "c" then 
+if equippedT == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Right Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.Side:FireServer(unpack(args))
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.Side:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "z" then 
+if equippedT == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left eg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Tackle.Side:FireServer(unpack(args))
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Tackle.Side:FireServer(unpack(args))
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "e" then 
+if equippedT == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.StandingTackle:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Tackle.StandingTackle:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "e" then 
+if equippedT == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Tackle.StandingTackle:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Left Leg"]
+}
+
+workspace.FE.Tackle.StandingTackle:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "e" then 
+if equippedP == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.PassBack:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.PassBack:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "x" then 
+if equippedP == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.DragBack:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.DragBack:FireServer(unpack(args))
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+                        mouse.KeyDown:connect(function(activate)
+                activate:lower()
+                if activate == "z" then 
+if equippedP == true then
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.PassLR:FireServer(unpack(args))
+
+
+
+workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+else
+if (game.Workspace.TPSSystem.TPS.Position - game.Players.LocalPlayer.Character["Left Leg"].Position).magnitude <= distance then
+local args = {
+    [1] = workspace.TPSSystem.TPS,
+    [2] = game:GetService("Players").LocalPlayer.Character["Right Leg"]
+}
+
+workspace.FE.Pass.PassLR:FireServer(unpack(args))
+
+
+                workspace.FE.Scorer.RemoteEvent:FireServer(unpack(arguments))
+end
+end
+end
+end
+end)
+
+
+
+
+
+
+
+local StarterGui = game:GetService("StarterGui")
+
+
+    StarterGui:SetCore("SendNotification", {
+        Title = "Successfully loaded!";
+        Text = "The react script has been loaded successfully!"
+    })
+StarterGui:SetCore("ChatMakeSystemMessage",  { Text = "The react script has successfully been loaded in! Join discord.gg/rj8PXHXmUe for more free quality scripts!", Color = Color3.fromRGB(11, 9, 36), Font = Enum.Font.FredokaOne, FontSize = Enum.FontSize.Size24 } )
+
+
